@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "BatSlop",
+  "version": "1.0.0",
+  "description": "Replaces 'I built/made/programmed' with 'AI built/made/programmed' on Reddit and swaps post thumbnails with the Batman slap meme.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.reddit.com/*",
+        "https://old.reddit.com/*",
+        "https://new.reddit.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["batslopslap.png"],
+      "matches": [
+        "https://www.reddit.com/*",
+        "https://old.reddit.com/*",
+        "https://new.reddit.com/*"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "BatSlop Settings"
+  },
+  "icons": {
+    "48": "batslopslap.png",
+    "96": "batslopslap.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "batslop@batslop.extension",
+      "strict_min_version": "109.0"
+    }
+  }
+}
