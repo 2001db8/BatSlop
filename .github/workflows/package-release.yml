@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   package:
@@ -50,3 +50,11 @@ jobs:
             dist/BatSlop-${{ steps.version.outputs.version }}-chrome.zip
             dist/BatSlop-${{ steps.version.outputs.version }}-firefox-unsigned.xpi
           if-no-files-found: error
+
+      - name: Attach packages to GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/BatSlop-${{ steps.version.outputs.version }}-chrome.zip
+            dist/BatSlop-${{ steps.version.outputs.version }}-firefox-unsigned.xpi
