@@ -7,18 +7,20 @@
   "content_scripts": [
     {
       "matches": [
+        "https://reddit.com/*",
         "https://www.reddit.com/*",
         "https://old.reddit.com/*",
         "https://new.reddit.com/*"
       ],
-      "js": ["content.js"],
+      "js": ["scripts/defaults.js", "scripts/content.js"],
       "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["batslopslap.png"],
+      "resources": ["assets/batslopslap.png"],
       "matches": [
+        "https://reddit.com/*",
         "https://www.reddit.com/*",
         "https://old.reddit.com/*",
         "https://new.reddit.com/*"
@@ -30,8 +32,8 @@
     "default_title": "BatSlop Settings"
   },
   "icons": {
-    "48": "batslopslap.png",
-    "96": "batslopslap.png"
+    "48": "assets/batslopslap.png",
+    "96": "assets/batslopslap.png"
   },
   "browser_specific_settings": {
     "gecko": {

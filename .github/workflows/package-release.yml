@@ -1,0 +1,52 @@
+name: Package extension
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    name: Package browser extension
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Read extension version
+        id: version
+        shell: bash
+        run: |
+          version="$(node -p "require('./manifest.json').version")"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Build extension archives
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          package_dir="dist/BatSlop-${{ steps.version.outputs.version }}"
+          mkdir -p "$package_dir"
+
+          cp manifest.json popup.html "$package_dir/"
+          cp -R assets scripts "$package_dir/"
+
+          (
+            cd "$package_dir"
+            zip -r "../BatSlop-${{ steps.version.outputs.version }}-chrome.zip" .
+          )
+          cp "dist/BatSlop-${{ steps.version.outputs.version }}-chrome.zip" "dist/BatSlop-${{ steps.version.outputs.version }}-firefox-unsigned.xpi"
+
+      - name: Upload packaged artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: BatSlop-${{ steps.version.outputs.version }}-extension-packages
+          path: |
+            dist/BatSlop-${{ steps.version.outputs.version }}-chrome.zip
+            dist/BatSlop-${{ steps.version.outputs.version }}-firefox-unsigned.xpi
+          if-no-files-found: error
