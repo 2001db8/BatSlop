@@ -24,7 +24,7 @@ BatSlop is a small Browser extension that aims to fix the current display issues
 4. Select the `manifest.json` file inside the `BatSlop` folder
 5. Navigate to a target subreddit and enjoy
 
-> **Note:** Temporary add-ons in Firefox are removed when the browser closes. For persistent installation, the extension needs to be signed via [AMO](https://addons.mozilla.org/developers/).
+> **Note:** Temporary add-ons in Firefox are removed when the browser closes.
 
 ### From Release Packages
 
@@ -48,4 +48,4 @@ Release builds provide two installable archives:
 3. Click **Load Temporary Add-on**
 4. Select the `.xpi` file
 
-> **Note:** The packaged Firefox `.xpi` is unsigned. It can be loaded temporarily for testing, but regular persistent Firefox installation requires Mozilla signing.
+> **Note:** The packaged Firefox `.xpi` is unsigned.
