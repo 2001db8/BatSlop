@@ -6,34 +6,19 @@ BatSlop is a small Browser extension that aims to fix the current display issues
 
 ## Install
 
-### From Source
+### Firefox
 
-#### Chrome / Edge / Brave
+Install BatSlop from the official Firefox Add-ons store:
 
-1. Download or clone this repository
-2. Open `chrome://extensions` (or `edge://extensions`, `brave://extensions`)
-3. Enable **Developer mode** (toggle in top-right)
-4. Click **Load unpacked** and select the `BatSlop` folder
-5. Navigate to a target subreddit and enjoy
+<https://addons.mozilla.org/en-US/firefox/addon/batslop/>
 
-#### Firefox
+This is the recommended Firefox installation method because the extension is signed and remains installed normally.
 
-1. Download or clone this repository
-2. Open `about:debugging#/runtime/this-firefox`
-3. Click **Load Temporary Add-on**
-4. Select the `manifest.json` file inside the `BatSlop` folder
-5. Navigate to a target subreddit and enjoy
+### Chrome / Edge / Brave
 
-> **Note:** Temporary add-ons in Firefox are removed when the browser closes.
-
-### From Release Packages
-
-Release builds provide two installable archives:
+GitHub release builds provide a Chrome-family archive:
 
 - `BatSlop-<version>-chrome.zip`
-- `BatSlop-<version>-firefox-unsigned.xpi`
-
-#### Chrome / Edge / Brave
 
 1. Download `BatSlop-<version>-chrome.zip` from the release artifacts
 2. Extract the ZIP file
@@ -41,11 +26,25 @@ Release builds provide two installable archives:
 4. Enable **Developer mode**
 5. Click **Load unpacked** and select the extracted extension folder
 
-#### Firefox
+### Development / Testing
+
+#### Load From Source
+
+1. Download or clone this repository
+2. Open your browser's extension debugging page:
+   - Chrome / Edge / Brave: `chrome://extensions`, `edge://extensions`, or `brave://extensions`
+   - Firefox: `about:debugging#/runtime/this-firefox`
+3. Load the repository folder as an unpacked extension in Chrome-family browsers, or select `manifest.json` as a temporary add-on in Firefox
+
+#### Unsigned Firefox Package
+
+GitHub releases also include an unsigned Firefox package for testing:
+
+- `BatSlop-<version>-firefox-unsigned.xpi`
 
 1. Download `BatSlop-<version>-firefox-unsigned.xpi` from the release artifacts
 2. Open `about:debugging#/runtime/this-firefox`
 3. Click **Load Temporary Add-on**
 4. Select the `.xpi` file
 
-> **Note:** The packaged Firefox `.xpi` is unsigned.
+> **Note:** The GitHub `.xpi` is unsigned and intended for temporary testing only. Firefox users should install the signed version from the Firefox Add-ons store.
