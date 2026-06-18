@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "BatSlop",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Replaces 'I built/made/programmed' with 'AI built/made/programmed' on Reddit and swaps post thumbnails with the Batman slap meme.",
   "permissions": ["storage"],
   "content_scripts": [
