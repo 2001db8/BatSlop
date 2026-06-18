@@ -45,7 +45,8 @@
   let state = {
     subreddits: [...DEFAULT_SUBREDDITS],
     replacements: [...DEFAULT_REPLACEMENTS],
-    enabled: true
+    enabled: true,
+    processAllReddit: false
   };
 
   function save() {
@@ -119,17 +120,24 @@
     const storage = getStorage();
     if (!storage) return;
 
-    storageGet(["subreddits", "replacements", "enabled"]).then((result) => {
+    storageGet(["subreddits", "replacements", "enabled", "processAllReddit"]).then((result) => {
       state.subreddits = result.subreddits || DEFAULT_SUBREDDITS;
       state.replacements = result.replacements || DEFAULT_REPLACEMENTS;
       state.enabled = result.enabled !== false;
+      state.processAllReddit = result.processAllReddit === true;
       document.getElementById("enabled").checked = state.enabled;
+      document.getElementById("process-all-reddit").checked = state.processAllReddit;
       renderSubreddits();
       renderReplacements();
     });
 
     document.getElementById("enabled").addEventListener("change", (e) => {
       state.enabled = e.target.checked;
+      save();
+    });
+
+    document.getElementById("process-all-reddit").addEventListener("change", (e) => {
+      state.processAllReddit = e.target.checked;
       save();
     });
 
@@ -147,7 +155,9 @@
       state.subreddits = [...DEFAULT_SUBREDDITS];
       state.replacements = [...DEFAULT_REPLACEMENTS];
       state.enabled = true;
+      state.processAllReddit = false;
       document.getElementById("enabled").checked = true;
+      document.getElementById("process-all-reddit").checked = false;
       save();
       renderSubreddits();
       renderReplacements();

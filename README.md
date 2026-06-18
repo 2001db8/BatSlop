@@ -4,6 +4,12 @@
 
 BatSlop is a small Browser extension that aims to fix the current display issues in many subreddits where posts that are supposed to tell you about some AI project incorrectly display "I made" or "I programmed" when it should say "AI made..." and AI programmed...". Nothing more, nothing less. Enjoy.
 
+## Configuration
+
+By default, BatSlop only processes posts from the configured target subreddits. This also applies on the Reddit start page, `r/all`, and `r/popular`: posts from target subreddits are altered, posts from other subreddits are left alone.
+
+The popup includes an optional **All of Reddit** toggle. When enabled, matching post titles and previews can be altered across Reddit, regardless of subreddit.
+
 ## Install
 
 ### Firefox

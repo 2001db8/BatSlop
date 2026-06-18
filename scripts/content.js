@@ -31,11 +31,12 @@
   }
 
   function loadConfig() {
-    return storageGet(["subreddits", "replacements", "enabled"]).then((result) => {
+    return storageGet(["subreddits", "replacements", "enabled", "processAllReddit"]).then((result) => {
       return {
         subreddits: result.subreddits || DEFAULT_SUBREDDITS,
         replacements: result.replacements || DEFAULT_REPLACEMENTS,
-        enabled: result.enabled !== false
+        enabled: result.enabled !== false,
+        processAllReddit: result.processAllReddit === true
       };
     });
   }
@@ -53,6 +54,7 @@
   }
 
   function isTargetSubreddit(sub) {
+    if (config && config.processAllReddit) return true;
     if (!sub || !config) return false;
     return config.subreddits.some((s) => s.toLowerCase() === sub);
   }
