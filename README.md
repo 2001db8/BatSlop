@@ -22,15 +22,9 @@ This is the recommended Firefox installation method because the extension is sig
 
 ### Chrome / Edge / Brave
 
-GitHub release builds provide a Chrome-family archive:
+Install BatSlop from the Chrome Web Store:
 
-- `BatSlop-<version>-chrome.zip`
-
-1. Download `BatSlop-<version>-chrome.zip` from the release artifacts
-2. Extract the ZIP file
-3. Open `chrome://extensions` (or `edge://extensions`, `brave://extensions`)
-4. Enable **Developer mode**
-5. Click **Load unpacked** and select the extracted extension folder
+<https://chromewebstore.google.com/detail/batslop/cagjmdmmekfkonhkljnpcmnelbihncco>
 
 ### Development / Testing
 
@@ -41,6 +35,18 @@ GitHub release builds provide a Chrome-family archive:
    - Chrome / Edge / Brave: `chrome://extensions`, `edge://extensions`, or `brave://extensions`
    - Firefox: `about:debugging#/runtime/this-firefox`
 3. Load the repository folder as an unpacked extension in Chrome-family browsers, or select `manifest.json` as a temporary add-on in Firefox
+
+#### Chrome-Family Release Package
+
+GitHub releases also include a Chrome-family archive for manual testing:
+
+- `BatSlop-<version>-chrome.zip`
+
+1. Download `BatSlop-<version>-chrome.zip` from the release artifacts
+2. Extract the ZIP file
+3. Open `chrome://extensions` (or `edge://extensions`, `brave://extensions`)
+4. Enable **Developer mode**
+5. Click **Load unpacked** and select the extracted extension folder
 
 #### Unsigned Firefox Package
 
